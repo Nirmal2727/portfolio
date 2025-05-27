@@ -68,7 +68,7 @@ export default function Portfolio() {
       id: 1,
       title: "Contemporary Bathroom Design",
       description: "Stylish and modern bathroom visualization.",
-      thumbnail: "/portfolio/render/contemporary-bathroom-design/1.png", // <-- Updated path
+      thumbnail: "/render/contemporary-bathroom-design/1.png", // <-- Updated path
       images: [
         "/portfolio/render/contemporary-bathroom-design/1.png", // <-- Updated path
         "/portfolio/render/contemporary-bathroom-design/2.png", // <-- Update filename if different
@@ -81,7 +81,7 @@ export default function Portfolio() {
       id: 2,
       title: "Contemporary Canopy Suit",
       description: "Elegant canopy design visualization.",
-      thumbnail: "/portfolio/render/contemporary-canopy-suit/1.png", // <-- Updated path
+      thumbnail: "/render/contemporary-canopy-suit/1.png", // <-- Updated path
       images: [
         "/portfolio/render/contemporary-canopy-suit/1.png", // <-- Updated path
         "/portfolio/render/contemporary-canopy-suit/2.png", // <-- Update filename if different
@@ -93,7 +93,7 @@ export default function Portfolio() {
       id: 3,
       title: "Environmental Lighting Showcase",
       description: "Render focusing on lighting techniques.",
-      thumbnail: "/portfolio/render/environmental-lighting-showcase/1.png", // <-- Updated path
+      thumbnail: "/render/environmental-lighting-showcase/1.png", // <-- Updated path
       images: [
         "/portfolio/render/environmental-lighting-showcase/1.png", // <-- Updated path
         "/portfolio/render/environmental-lighting-showcase/2.png", // <-- Update filename if different
@@ -107,7 +107,7 @@ export default function Portfolio() {
       id: 4,
       title: "Luxe Green Bathroom",
       description: "Luxury bathroom with green accents.",
-      thumbnail: "/portfolio/render/luxe-green-bathroom/1.png", // <-- Updated path
+      thumbnail: "render/luxe-green-bathroom/1.png", // <-- Updated path
       images: [
         "/portfolio/render/luxe-green-bathroom/1.png", // <-- Updated path
         "/portfolio/render/luxe-green-bathroom/2.png", // <-- Update filename if different
@@ -118,7 +118,7 @@ export default function Portfolio() {
       id: 5,
       title: "Modern Luxury Dining",
       description: "High-end dining area visualization.",
-      thumbnail: "/portfolio/render/modern-luxury-dining/1.png", // <-- Updated path
+      thumbnail: "render/modern-luxury-dining/1.png", // <-- Updated path
       images: [
         "/portfolio/render/modern-luxury-dining/1.png", // <-- Updated path
         "/portfolio/render/modern-luxury-dining/2.png", // <-- Update filename if different
@@ -139,7 +139,7 @@ export default function Portfolio() {
       id: 7,
       title: "Noir Serenity",
       description: "Dark and serene visualization.",
-      thumbnail: "/portfolio/render/noir-serenity/1.png", // <-- Updated path
+      thumbnail: "render/noir-serenity/1.png", // <-- Updated path
       images: [
         "/portfolio/render/noir-serenity/1.png", // <-- Updated path
         "/portfolio/render/noir-serenity/2.png",
