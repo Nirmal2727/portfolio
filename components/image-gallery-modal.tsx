@@ -172,7 +172,7 @@ export default function ImageGalleryModal({
                         <div className="relative flex-1 flex items-center justify-center p-4 min-h-0">
                             {/* Fixed image container that maintains size */}
                             <div className="relative w-full h-full max-w-5xl max-h-full overflow-hidden">
-                                <AnimatePresence initial={false} custom={direction} mode="wait">
+                                <AnimatePresence initial={false} custom={direction}>
                                     <motion.div
                                         key={images[currentImageIndex]}
                                         custom={direction}
