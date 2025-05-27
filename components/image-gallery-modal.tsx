@@ -20,15 +20,16 @@ export default function ImageGalleryModal({
     onClose,
 }: ImageGalleryModalProps) {
     const [currentImageIndex, setCurrentImageIndex] = useState(initialIndex);
-    const modalContentRef = useRef<HTMLDivElement>(null); // Ref for outside click detection
+    // Use a ref for the main modal content container for outside click detection
+    const modalContentRef = useRef<HTMLDivElement>(null);
 
     // Sync internal state when initialIndex prop changes (e.g., opening different projects)
     useEffect(() => {
         if (isOpen) {
              // Ensure the index is valid for the current set of images
-            setCurrentImageIndex(Math.min(initialIndex, images.length - 1));
+            setCurrentImageIndex(Math.min(initialIndex, images.length > 0 ? images.length - 1 : 0)); // Handle empty images array
         }
-    }, [isOpen, initialIndex, images]); // Re-run if modal opens, initial index, or image list changes
+    }, [isOpen, initialIndex, images]);
 
     const goToNext = useCallback(() => {
         if (images.length > 0) {
@@ -43,16 +44,16 @@ export default function ImageGalleryModal({
     }, [images.length]);
 
      const goToImage = useCallback((index: number) => {
-         if (index >= 0 && index < images.length) {
+         if (images && index >= 0 && index < images.length) {
              setCurrentImageIndex(index);
          }
-     }, [images.length]);
+     }, [images]);
 
 
     // Keyboard Navigation and Escape to close
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
-            if (!isOpen) return; // Only handle keys if modal is open
+            if (!isOpen) return;
 
             if (event.key === 'ArrowRight') {
                 goToNext();
@@ -68,20 +69,15 @@ export default function ImageGalleryModal({
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
         };
-    }, [isOpen, goToNext, goToPrevious, onClose]); // Dependencies include state/props used in handlers
+    }, [isOpen, goToNext, goToPrevious, onClose]);
 
 
     // Outside click to close modal
-    useEffect(() => {
+     useEffect(() => {
         const handleOutsideClick = (event: MouseEvent) => {
-            // Check if the modal is open AND the click happened outside the modal content area
+            // Check if the modal is open AND the click target is outside the modal content container
             if (isOpen && modalContentRef.current && !modalContentRef.current.contains(event.target as Node)) {
-                 // Additional check to ensure the click wasn't on the backdrop which should close it
-                 // We only want to prevent closing if the click was *inside* modalContentRef BUT NOT
-                 // on specifically designated interactive elements *within* modalContentRef
-                 // However, since modalContentRef covers the main content area, we mostly rely on the
-                 // !modalContentRef.current.contains check. If you need more granular control,
-                 // you'd check event.target's classes/ids.
+                 // If click is outside the main content area, close the modal
                  onClose();
             }
         };
@@ -105,10 +101,10 @@ export default function ImageGalleryModal({
          if (isOpen) {
              document.body.style.overflow = 'hidden';
          } else {
-             document.body.style.overflow = ''; // Or 'visible'
+             document.body.style.overflow = '';
          }
          return () => {
-             document.body.style.overflow = ''; // Clean up on unmount
+             document.body.style.overflow = '';
          };
      }, [isOpen]);
 
@@ -123,19 +119,19 @@ export default function ImageGalleryModal({
     // Variants for image transition animation
      const imageVariants = {
          initial: (direction: number) => ({
-             x: direction > 0 ? 100 : -100, // Slide in from right (+1) or left (-1)
+             x: direction > 0 ? 100 : -100,
              opacity: 0,
          }),
          animate: {
              x: 0,
              opacity: 1,
              transition: {
-                 duration: 0.3, // Adjust duration
-                 ease: "easeOut" // Adjust easing
+                 duration: 0.3,
+                 ease: "easeOut"
              }
          },
          exit: (direction: number) => ({
-            x: direction > 0 ? -100 : 100, // Slide out to left (+1) or right (-1)
+            x: direction > 0 ? -100 : 100,
             opacity: 0,
              transition: {
                  duration: 0.3,
@@ -156,12 +152,12 @@ export default function ImageGalleryModal({
      }, [currentImageIndex]);
 
 
-    if (!isOpen) return null; // Don't render anything if not open
+    if (!isOpen) return null;
 
     // Add a check for empty images array
     if (!images || images.length === 0) {
          console.warn("ImageGalleryModal opened with an empty or null image array.");
-         return null; // Or render an error/message
+         return null;
     }
 
 
@@ -169,15 +165,15 @@ export default function ImageGalleryModal({
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm" // Full screen overlay
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm" // Padding around the modal container
                     variants={modalVariants}
                     initial="hidden"
                     animate="visible"
                     exit="exit"
                 >
-                    {/* Modal Content Container - Add ref for outside click */}
-                    {/* This div contains the main image and thumbnails */}
-                    <div ref={modalContentRef} className="relative w-full max-w-6xl max-h-[95vh] flex flex-col bg-gray-900 rounded-lg overflow-hidden"> {/* Adjusted max-h and max-w */}
+                    {/* Modal Content Container - Now has the main padding */}
+                    {/* Adjusted max-h slightly to leave some space for the top padding + close button */}
+                    <div ref={modalContentRef} className="relative w-full max-w-6xl max-h-[calc(100vh-6rem)] lg:max-h-[95vh] flex flex-col bg-gray-900 rounded-lg overflow-hidden"> {/* ADDED p-4 removed, using padding from parent; Adjusted max-h */}
 
                         {/* Close Button */}
                         <button
@@ -188,32 +184,36 @@ export default function ImageGalleryModal({
                              <X className="h-6 w-6" />
                          </button>
 
-                        {/* Main Image Area */}
-                         <div className="relative w-full flex-grow flex items-center justify-center p-4 overflow-hidden"> {/* Added overflow-hidden, padding */}
+                        {/* Main Image Area - Removed p-4, relies on flex-grow */}
+                         <div className="relative w-full flex-grow flex items-center justify-center overflow-hidden"> {/* REMOVED p-4 */}
                             <AnimatePresence initial={false} custom={direction}>
                                 <motion.div
-                                     key={images[currentImageIndex]} // Use image path as key for better transition
-                                     custom={direction} // Pass direction to variants
+                                     key={images[currentImageIndex]}
+                                     custom={direction}
                                      variants={imageVariants}
                                      initial="initial"
                                      animate="animate"
                                      exit="exit"
-                                     className="relative w-full h-full flex items-center justify-center" // Added flex centering
+                                     // This div holds the Image, it needs w-full h-full for Image fill to work
+                                     className="relative w-full h-full flex items-center justify-center"
                                 >
                                     <Image
                                         src={images[currentImageIndex]}
                                         alt={`Portfolio image ${currentImageIndex + 1}`}
                                         fill
-                                        sizes="(max-width: 1024px) 100vw, 80vw" // Adjust sizes based on modal max-width
-                                        className="object-contain rounded-md" // object-contain to fit image without cropping
-                                        priority={currentImageIndex === initialIndex} // Prioritize the initially opened image
+                                        // sizes prop helps Next.js optimize, doesn't strictly control rendered size with `fill`
+                                        // The size is determined by the parent's layout.
+                                        // Keep reasonable sizes, perhaps slightly larger to account for modal size.
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 70vw"
+                                        className="object-contain rounded-md" // object-contain is correct for fitting
+                                        priority={currentImageIndex === initialIndex}
                                     />
                                     {console.log("Modal Main Image path:", images[currentImageIndex])}
                                 </motion.div>
                             </AnimatePresence>
 
                             {/* Navigation Arrows */}
-                            {images.length > 1 && ( // Only show arrows if more than one image
+                            {images.length > 1 && (
                                 <>
                                     <button
                                         onClick={goToPrevious}
@@ -235,9 +235,10 @@ export default function ImageGalleryModal({
 
 
                         {/* Thumbnails Strip */}
-                         {images.length > 1 && ( // Only show thumbnails if more than one image
-                             <div className="w-full flex-shrink-0 px-4 py-2 overflow-x-auto"> {/* Added px-4 py-2, overflow-x-auto */}
-                                <div className="flex gap-3 justify-center"> {/* Center thumbnails */}
+                         {images.length > 1 && (
+                             {/* This container now needs vertical padding */}
+                             <div className="w-full flex-shrink-0 px-4 py-2 overflow-x-auto"> {/* ADDED py-2 back */}
+                                <div className="flex gap-3 justify-center">
                                     {images.map((imagePath, index) => (
                                         <motion.div
                                             key={index}
