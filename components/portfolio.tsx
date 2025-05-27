@@ -68,11 +68,11 @@ export default function Portfolio() {
       id: 1,
       title: "Contemporary Bathroom Design",
       description: "Stylish and modern bathroom visualization.",
-      thumbnail: "/portfolio/render/contemporary-bathroom-design/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/contemporary-bathroom-design/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/contemporary-bathroom-design/1.png", // <-- Updated path
-        "/portfolio/render/contemporary-bathroom-design/2.png", // <-- Update filename if different
-        "/portfolio/render/contemporary-bathroom-design/3.png",
+        "/portfolio/public/render/contemporary-bathroom-design/1.png", // <-- Updated path
+        "/portfolio/public/render/contemporary-bathroom-design/2.png", // <-- Update filename if different
+        "/portfolio/public/render/contemporary-bathroom-design/3.png",
         // Add ALL image paths for this project's gallery here
         // e.g., "/portfolio/render/contemporary-bathroom-design/3.png",
       ],
@@ -81,11 +81,11 @@ export default function Portfolio() {
       id: 2,
       title: "Contemporary Canopy Suit",
       description: "Elegant canopy design visualization.",
-      thumbnail: "/portfolio/render/contemporary-canopy-suit/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/contemporary-canopy-suit/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/contemporary-canopy-suit/1.png", // <-- Updated path
-        "/portfolio/render/contemporary-canopy-suit/2.png", // <-- Update filename if different
-        "/portfolio/render/contemporary-canopy-suit/3.png", // <-- Update filename if different
+        "/portfolio/public/render/contemporary-canopy-suit/1.png", // <-- Updated path
+        "/portfolio/public/render/contemporary-canopy-suit/2.png", // <-- Update filename if different
+        "/portfolio/public/render/contemporary-canopy-suit/3.png", // <-- Update filename if different
         // ... more images
       ],
     },
@@ -93,37 +93,37 @@ export default function Portfolio() {
       id: 3,
       title: "Environmental Lighting Showcase",
       description: "Render focusing on lighting techniques.",
-      thumbnail: "/portfolio/render/environmental-lighting-showcase/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/environmental-lighting-showcase/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/environmental-lighting-showcase/1.png", // <-- Updated path
-        "/portfolio/render/environmental-lighting-showcase/2.png", // <-- Update filename if different
-        "/portfolio/render/environmental-lighting-showcase/3.png", // <-- Update filename if different
-        "/portfolio/render/environmental-lighting-showcase/4.png", // <-- Update filename if different
-        "/portfolio/render/environmental-lighting-showcase/5.png",
-        "/portfolio/render/environmental-lighting-showcase/6.png",
+        "/portfolio/public/render/environmental-lighting-showcase/1.png", // <-- Updated path
+        "/portfolio/public/render/environmental-lighting-showcase/2.png", // <-- Update filename if different
+        "/portfolio/public/render/environmental-lighting-showcase/3.png", // <-- Update filename if different
+        "/portfolio/public/render/environmental-lighting-showcase/4.png", // <-- Update filename if different
+        "/portfolio/public/render/environmental-lighting-showcase/5.png",
+        "/portfolio/public/render/environmental-lighting-showcase/6.png",
       ],
     },
      {
       id: 4,
       title: "Luxe Green Bathroom",
       description: "Luxury bathroom with green accents.",
-      thumbnail: "/portfolio/render/luxe-green-bathroom/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/luxe-green-bathroom/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/luxe-green-bathroom/1.png", // <-- Updated path
-        "/portfolio/render/luxe-green-bathroom/2.png", // <-- Update filename if different
-        "/portfolio/render/luxe-green-bathroom/3.png",
+        "/portfolio/public/render/luxe-green-bathroom/1.png", // <-- Updated path
+        "/portfolio/public/render/luxe-green-bathroom/2.png", // <-- Update filename if different
+        "/portfolio/public/render/luxe-green-bathroom/3.png",
       ],
     },
      {
       id: 5,
       title: "Modern Luxury Dining",
       description: "High-end dining area visualization.",
-      thumbnail: "/portfolio/render/modern-luxury-dining/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/modern-luxury-dining/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/modern-luxury-dining/1.png", // <-- Updated path
-        "/portfolio/render/modern-luxury-dining/2.png", // <-- Update filename if different
-        "/portfolio/render/modern-luxury-dining/3.png", // <-- Update filename if different
-        "/portfolio/render/modern-luxury-dining/4.png",
+        "/portfolio/public/render/modern-luxury-dining/1.png", // <-- Updated path
+        "/portfolio/public/render/modern-luxury-dining/2.png", // <-- Update filename if different
+        "/portfolio/public/render/modern-luxury-dining/3.png", // <-- Update filename if different
+        "/portfolio/public/render/modern-luxury-dining/4.png",
       ],
     },
     {
@@ -132,79 +132,79 @@ export default function Portfolio() {
       description: "Urban scene with neon lighting.",
       thumbnail: "/portfolio/render/neon-streets/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/neon-streets/1.png", // <-- Updated path
+        "/portfolio/public/render/neon-streets/1.png", // <-- Updated path
       ],
     },
      {
       id: 7,
       title: "Noir Serenity",
       description: "Dark and serene visualization.",
-      thumbnail: "/portfolio/render/noir-serenity/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/noir-serenity/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/noir-serenity/1.png", // <-- Updated path
-        "/portfolio/render/noir-serenity/2.png",
+        "/portfolio/public/render/noir-serenity/1.png", // <-- Updated path
+        "/portfolio/public/render/noir-serenity/2.png",
       ],
     },
      {
       id: 8,
       title: "Olive Hues & Modern Views",
       description: "Contemporary space with olive tones.",
-      thumbnail: "/portfolio/render/olive-hues-modern-views/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/olive-hues-modern-views/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/olive-hues-modern-views/1.png", // <-- Updated path
-        "/portfolio/render/olive-hues-modern-views/2.png", // <-- Update filename if different
-        "/portfolio/render/olive-hues-modern-views/3.png", // <-- Update filename if different
-        "/portfolio/render/olive-hues-modern-views/4.png",
-        "/portfolio/render/olive-hues-modern-views/5.png",
+        "/portfolio/public/render/olive-hues-modern-views/1.png", // <-- Updated path
+        "/portfolio/public/render/olive-hues-modern-views/2.png", // <-- Update filename if different
+        "/portfolio/public/render/olive-hues-modern-views/3.png", // <-- Update filename if different
+        "/portfolio/public/render/olive-hues-modern-views/4.png",
+        "/portfolio/public/render/olive-hues-modern-views/5.png",
       ],
     },
      {
       id: 9,
       title: "Symphony of Gold and Black",
       description: "Opulent interior concept.",
-      thumbnail: "/portfolio/render/symphony-of-gold-and-black/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/symphony-of-gold-and-black/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/symphony-of-gold-and-black/1.png", // <-- Updated path
-        "/portfolio/render/symphony-of-gold-and-black/2.png", // <-- Update filename if different
+        "/portfolio/public/render/symphony-of-gold-and-black/1.png", // <-- Updated path
+        "/portfolio/public/render/symphony-of-gold-and-black/2.png", // <-- Update filename if different
       ],
     },
      {
       id: 10,
       title: "The Soft Edge",
       description: "Visualization with soft transitions.",
-      thumbnail: "/portfolio/render/the-soft-edge/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/the-soft-edge/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/the-soft-edge/1.png", // <-- Updated path
-        "/portfolio/render/the-soft-edge/2.png",
+        "/portfolio/public/render/the-soft-edge/1.png", // <-- Updated path
+        "/portfolio/public/render/the-soft-edge/2.png",
       ],
     },
       {
       id: 11,
       title: "The Urban Escape",
       description: "Relaxing urban balcony/terrace.",
-      thumbnail: "/portfolio/render/the-urban-escape/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/the-urban-escape/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/the-urban-escape/1.png", // <-- Updated path
-         "/portfolio/render/the-urban-escape/2.png", // <-- Update filename if different
+        "/portfolio/public/render/the-urban-escape/1.png", // <-- Updated path
+         "/portfolio/public/render/the-urban-escape/2.png", // <-- Update filename if different
       ],
     },
        {
       id: 12,
       title: "The Urban Villa",
       description: "Modern villa in an urban setting.",
-      thumbnail: "/portfolio/render/the-urban-villa/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/the-urban-villa/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/the-urban-villa/1.png", // <-- Updated path
+        "/portfolio/render/public/the-urban-villa/1.png", // <-- Updated path
       ],
     },
       {
       id: 13,
       title: "Velocity Vault",
       description: "Futuristic vehicle showcase.",
-      thumbnail: "/portfolio/render/velocity-vault/1.png", // <-- Updated path
+      thumbnail: "/portfolio/public/render/velocity-vault/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/velocity-vault/1.png", // <-- Updated path
-        "/portfolio/render/velocity-vault/2.png",
+        "/portfolio/public/render/velocity-vault/1.png", // <-- Updated path
+        "/portfolio/public/render/velocity-vault/2.png",
       ],
     },
     // Add the rest of your projects following this pattern, updating paths and filenames
