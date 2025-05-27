@@ -37,11 +37,19 @@ export default function Contact() {
   }
 
   const socialLinks = [
-    { icon: <Linkedin className="h-5 w-5" />, url: "#", label: "LinkedIn" },
-    { icon: <Instagram className="h-5 w-5" />, url: "#", label: "Instagram" },
+    { 
+      icon: <Linkedin className="h-5 w-5" />, 
+      url: "https://www.linkedin.com/in/nirmal-sharma-268936205", 
+      label: "LinkedIn" 
+    },
+    { 
+      icon: <Instagram className="h-5 w-5" />, 
+      url: "https://www.instagram.com/ddstudi0_968", 
+      label: "Instagram" 
+    },
     {
       icon: <div className="h-5 w-5 flex items-center justify-center font-bold text-xs">Be</div>,
-      url: "#",
+      url: "https://www.behance.net/nirmalsharma6",
       label: "Behance",
     },
   ]
@@ -77,6 +85,8 @@ export default function Contact() {
                     <a
                       key={index}
                       href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label={link.label}
                       className="bg-gray-900 hover:bg-gray-800 text-purple-400 hover:text-purple-300 p-3 rounded-full transition-colors"
                     >
