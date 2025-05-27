@@ -67,11 +67,11 @@ export default function Portfolio() {
       id: 1,
       title: "Contemporary Bathroom Design",
       description: "Stylish and modern bathroom visualization.",
-      thumbnail: "/portfolio/render/Contemporary Bathroom Design/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/Contemporary-Bathroom-Design/1.png", // Using .png extension
       images: [
-        "/portfolio/render/Contemporary Bathroom Design/1.png",
-        "/portfolio/render/Contemporary Bathroom Design/2.png",
-        "/portfolio/render/Contemporary Bathroom Design/3.png",
+        "/portfolio/render/Contemporary-Bathroom-Design/1.png",
+        "/portfolio/render/Contemporary-Bathroom-Design/2.png",
+        "/portfolio/render/Contemporary-Bathroom-Design/3.png",
         // Add all actual image paths for this project here
         // e.g., "/portfolio/render/Contemporary Bathroom Design/render_final.png",
         // e.g., "/portfolio/render/Contemporary Bathroom Design/wireframe.png",
@@ -81,11 +81,11 @@ export default function Portfolio() {
       id: 2,
       title: "Contemporary Canopy Suit",
       description: "Elegant canopy design visualization.",
-      thumbnail: "/portfolio/render/Contemporary Canopy Suit/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/Contemporary-Canopy-Suit/1.png", // Using .png extension
       images: [
-        "/portfolio/render/Contemporary Canopy Suit/1.png",
-        "/portfolio/render/Contemporary Canopy Suit/2.png",
-        "/portfolio/render/Contemporary Canopy Suit/3.png",
+        "/portfolio/render/Contemporary-Canopy-Suit/1.png",
+        "/portfolio/render/Contemporary-Canopy-Suit/2.png",
+        "/portfolio/render/Contemporary-Canopy-Suit/3.png",
         // Add all actual image paths for this project here
       ],
     },
@@ -93,14 +93,14 @@ export default function Portfolio() {
       id: 3,
       title: "Environmental Lighting Showcase",
       description: "Render focusing on lighting techniques.",
-      thumbnail: "/portfolio/render/Environmental Lighting Showcase/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/Environmental-Lighting-Showcase/1.png", // Using .png extension
       images: [
-        "/portfolio/render/Environmental Lighting Showcase/1.png",
-        "/portfolio/render/Environmental Lighting Showcase/2.png",
-        "/portfolio/render/Environmental Lighting Showcase/3.png",
-        "/portfolio/render/Environmental Lighting Showcase/4.png",
-        "/portfolio/render/Environmental Lighting Showcase/5.png",
-        "/portfolio/render/Environmental Lighting Showcase/6.png",
+        "/portfolio/render/Environmental-Lighting-Showcase/1.png",
+        "/portfolio/render/Environmental-Lighting-Showcase/2.png",
+        "/portfolio/render/Environmental-Lighting-Showcase/3.png",
+        "/portfolio/render/Environmental-Lighting-Showcase/4.png",
+        "/portfolio/render/Environmental-Lighting-Showcase/5.png",
+        "/portfolio/render/Environmental-Lighting-Showcase/6.png",
          // Add all actual image paths for this project here
       ],
     },
@@ -108,11 +108,11 @@ export default function Portfolio() {
       id: 4,
       title: "Luxe Green Bathroom",
       description: "Luxury bathroom with green accents.",
-      thumbnail: "/portfolio/render/Luxe Green Bathroom/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/Luxe-Green-Bathroom/1.png", // Using .png extension
       images: [
-        "/portfolio/render/Luxe Green Bathroom/1.png",
-        "/portfolio/render/Luxe Green Bathroom/2.png",
-        "/portfolio/render/Luxe Green Bathroom/2.png",
+        "/portfolio/render/Luxe-Green-Bathroom/1.png",
+        "/portfolio/render/Luxe-Green-Bathroom/2.png",
+        "/portfolio/render/Luxe-Green-Bathroom/2.png",
         // Add all actual image paths for this project here
       ],
     },
@@ -122,10 +122,10 @@ export default function Portfolio() {
       description: "High-end dining area visualization.",
       thumbnail: "/portfolio/render/Modern Luxury Dining/1.png", // Using .png extension
       images: [
-        "/portfolio/render/Modern Luxury Dining/1.png",
-        "/portfolio/render/Modern Luxury Dining/2.png",
-        "/portfolio/render/Modern Luxury Dining/3.png",
-        "/portfolio/render/Modern Luxury Dining/4.png",
+        "/portfolio/render/Modern-Luxury-Dining/1.png",
+        "/portfolio/render/Modern-Luxury-Dining/2.png",
+        "/portfolio/render/Modern-Luxury-Dining/3.png",
+        "/portfolio/render/Modern-Luxury-Dining/4.png",
         // Add all actual image paths for this project here
       ],
     },
@@ -133,9 +133,9 @@ export default function Portfolio() {
       id: 6,
       title: "Neon Streets",
       description: "Urban scene with neon lighting.",
-      thumbnail: "/portfolio/render/Neon Streets/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/Neon-Streets/1.png", // Using .png extension
       images: [
-        "/portfolio/render/Neon Streets/1.png",
+        "/portfolio/render/Neon-Streets/1.png",
         // Add all actual image paths for this project here
       ],
     },
@@ -143,10 +143,10 @@ export default function Portfolio() {
       id: 7,
       title: "Noir Serenity",
       description: "Dark and serene visualization.",
-      thumbnail: "/portfolio/render/Noir Serenity/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/Noir-Serenity/1.png", // Using .png extension
       images: [
-        "/portfolio/render/Noir Serenity/1.png",
-        "/portfolio/render/Noir Serenity/2.png",
+        "/portfolio/render/Noir-Serenity/1.png",
+        "/portfolio/render/Noir-Serenity/2.png",
          // Add all actual image paths for this project here
       ],
     },
@@ -154,13 +154,13 @@ export default function Portfolio() {
       id: 8,
       title: "Olive Hues & Modern Views",
       description: "Contemporary space with olive tones.",
-      thumbnail: "/portfolio/render/Olive Hues & Modern Views/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/Olive-Hues-and-Modern-Views/1.png", // Using .png extension
       images: [
-        "/portfolio/render/Olive Hues & Modern Views/1.png",
-        "/portfolio/render/Olive Hues & Modern Views/2.png",
-        "/portfolio/render/Olive Hues & Modern Views/3.png",
-        "/portfolio/render/Olive Hues & Modern Views/4.png",
-        "/portfolio/render/Olive Hues & Modern Views/5.png",
+        "/portfolio/render/Olive-Hues-and-Modern-Views/1.png",
+        "/portfolio/render/Olive-Hues-and-Modern-Views/2.png",
+        "/portfolio/render/Olive-Hues-and-Modern-Views/3.png",
+        "/portfolio/render/Olive-Hues-and-Modern-Views/4.png",
+        "/portfolio/render/Olive-Hues-and-Modern-Views/5.png",
          // Add all actual image paths for this project here
       ],
     },
@@ -168,21 +168,21 @@ export default function Portfolio() {
       id: 9,
       title: "Symphony of Gold and Black",
       description: "Opulent interior concept.",
-      thumbnail: "/portfolio/render/Symphony of Gold and Black/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/Symphony-of-Gold-and-Black/1.png", // Using .png extension
       images: [
-        "/portfolio/render/Symphony of Gold and Black/1.png",
-        "/portfolio/render/Symphony of Gold and Black/2.png",
+        "/portfolio/render/Symphony-of-Gold-and-Black/1.png",
+        "/portfolio/render/Symphony-of-Gold-and-Black/2.png",
          // Add all actual image paths for this project here
       ],
     },
      {
       id: 10,
       title: "The Soft Edge",
-      description: "Visualization with soft transitions.",
-      thumbnail: "/portfolio/render/The Soft Edge/1.png", // Using .png extension
+      description: "Visualization-with-soft-transitions.",
+      thumbnail: "/portfolio/render/The-Soft-Edge/1.png", // Using .png extension
       images: [
-        "/portfolio/render/The Soft Edge/1.png",
-        "/portfolio/render/The Soft Edge/2.png",
+        "/portfolio/render/The-Soft-Edge/1.png",
+        "/portfolio/render/The-Soft-Edge/2.png",
         // Add all actual image paths for this project here
       ],
     },
@@ -190,10 +190,10 @@ export default function Portfolio() {
       id: 11,
       title: "The Urban Escape",
       description: "Relaxing urban balcony/terrace.",
-      thumbnail: "/portfolio/render/The Urban Escape/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/The-Urban-Escape/1.png", // Using .png extension
       images: [
-        "/portfolio/render/The Urban Escape/1.png",
-         "/portfolio/render/The Urban Escape/2.png",
+        "/portfolio/render/The-Urban-Escape/1.png",
+         "/portfolio/render/The-Urban-Escape/2.png",
           // Add all actual image paths for this project here
       ],
     },
@@ -201,9 +201,9 @@ export default function Portfolio() {
       id: 12,
       title: "The Urban Villa",
       description: "Modern villa in an urban setting.",
-      thumbnail: "/portfolio/render/The Urban Villa/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/The-Urban-Villa/1.png", // Using .png extension
       images: [
-        "/portfolio/render/The Urban Villa/1.png",
+        "/portfolio/render/The-Urban-Villa/1.png",
            // Add all actual image paths for this project here
       ],
     },
@@ -211,10 +211,10 @@ export default function Portfolio() {
       id: 13,
       title: "Velocity Vault",
       description: "Futuristic vehicle showcase.",
-      thumbnail: "/portfolio/render/Velocity Vault/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/Velocity-Vault/1.png", // Using .png extension
       images: [
-        "/portfolio/render/Velocity Vault/1.png",
-        "/portfolio/render/Velocity Vault/2.png",
+        "/portfolio/render/Velocity-Vault/1.png",
+        "/portfolio/render/Velocity-Vault/2.png",
          // Add all actual image paths for this project here
       ],
     },
