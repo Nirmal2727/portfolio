@@ -104,10 +104,10 @@ export default function ImageGalleryModal({
         exit: { opacity: 0 },
     };
 
-    // Image transition variants
+    // Image transition variants - Fixed to prevent size/position changes
     const imageVariants = {
         initial: (direction: number) => ({
-            x: direction > 0 ? 100 : -100,
+            x: direction > 0 ? '100%' : '-100%',
             opacity: 0,
         }),
         animate: {
@@ -119,7 +119,7 @@ export default function ImageGalleryModal({
             }
         },
         exit: (direction: number) => ({
-            x: direction > 0 ? -100 : 100,
+            x: direction > 0 ? '-100%' : '100%',
             opacity: 0,
             transition: {
                 duration: 0.3,
@@ -150,104 +150,99 @@ export default function ImageGalleryModal({
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
                     variants={modalVariants}
                     initial="hidden"
                     animate="visible"
                     exit="exit"
                 >
-                    {/* Fixed container with proper structure */}
-                    <div className="absolute inset-0 flex flex-col">
+                    {/* Modal Content Container */}
+                    <div ref={modalContentRef} className="relative w-full h-full max-w-7xl flex flex-col">
                         
-                        {/* Close Button - Fixed position */}
+                        {/* Close Button */}
                         <button
                             onClick={onClose}
-                            className="absolute top-6 right-6 z-30 text-white hover:text-gray-300 transition-colors rounded-full bg-black/50 p-2"
+                            className="absolute top-4 right-4 z-30 text-white hover:text-gray-300 transition-colors rounded-full bg-black/50 p-2"
                             aria-label="Close"
                         >
                             <X className="h-6 w-6" />
                         </button>
 
-                        {/* Main Image Container - Fixed height and centered */}
-                        <div className="flex-1 flex items-center justify-center px-4 py-16 min-h-0">
-                            <div className="relative w-full h-full max-w-6xl max-h-full">
-                                
-                                {/* Image Display Area */}
-                                <div className="relative w-full h-full flex items-center justify-center" ref={modalContentRef}>
-                                    <AnimatePresence initial={false} custom={direction}>
-                                        <motion.div
-                                            key={images[currentImageIndex]}
-                                            custom={direction}
-                                            variants={imageVariants}
-                                            initial="initial"
-                                            animate="animate"
-                                            exit="exit"
-                                            className="absolute inset-0 flex items-center justify-center"
-                                        >
-                                            <div className="relative max-w-full max-h-full w-auto h-auto">
-                                                <Image
-                                                    src={images[currentImageIndex]}
-                                                    alt={`Portfolio image ${currentImageIndex + 1}`}
-                                                    width={1200}
-                                                    height={800}
-                                                    className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg"
-                                                    priority={currentImageIndex === initialIndex}
-                                                />
-                                            </div>
-                                        </motion.div>
-                                    </AnimatePresence>
-                                </div>
-
-                                {/* Navigation Arrows - Positioned relative to the image container */}
-                                {images.length > 1 && (
-                                    <>
-                                        <button
-                                            onClick={goToPrevious}
-                                            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-gray-300 transition-colors rounded-full bg-black/50 p-3 hover:bg-black/70"
-                                            aria-label="Previous image"
-                                        >
-                                            <ChevronLeft className="h-8 w-8" />
-                                        </button>
-                                        <button
-                                            onClick={goToNext}
-                                            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-gray-300 transition-colors rounded-full bg-black/50 p-3 hover:bg-black/70"
-                                            aria-label="Next image"
-                                        >
-                                            <ChevronRight className="h-8 w-8" />
-                                        </button>
-                                    </>
-                                )}
+                        {/* Main Image Area - Fixed container with consistent sizing */}
+                        <div className="relative flex-1 flex items-center justify-center p-4 min-h-0">
+                            {/* Fixed image container that maintains size */}
+                            <div className="relative w-full h-full max-w-5xl max-h-full overflow-hidden">
+                                <AnimatePresence initial={false} custom={direction} mode="wait">
+                                    <motion.div
+                                        key={images[currentImageIndex]}
+                                        custom={direction}
+                                        variants={imageVariants}
+                                        initial="initial"
+                                        animate="animate"
+                                        exit="exit"
+                                        className="absolute inset-0 flex items-center justify-center"
+                                    >
+                                        <div className="relative w-full h-full">
+                                            <Image
+                                                src={images[currentImageIndex]}
+                                                alt={`Portfolio image ${currentImageIndex + 1}`}
+                                                fill
+                                                sizes="(max-width: 1024px) 100vw, 90vw"
+                                                className="object-contain"
+                                                priority={currentImageIndex === initialIndex}
+                                            />
+                                        </div>
+                                    </motion.div>
+                                </AnimatePresence>
                             </div>
+
+                            {/* Navigation Arrows - Fixed positioning */}
+                            {images.length > 1 && (
+                                <>
+                                    <button
+                                        onClick={goToPrevious}
+                                        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-gray-300 transition-colors rounded-full bg-black/50 p-3 hover:bg-black/70"
+                                        aria-label="Previous image"
+                                    >
+                                        <ChevronLeft className="h-8 w-8" />
+                                    </button>
+                                    <button
+                                        onClick={goToNext}
+                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 text-white hover:text-gray-300 transition-colors rounded-full bg-black/50 p-3 hover:bg-black/70"
+                                        aria-label="Next image"
+                                    >
+                                        <ChevronRight className="h-8 w-8" />
+                                    </button>
+                                </>
+                            )}
                         </div>
 
                         {/* Thumbnails Strip - Fixed at bottom */}
                         {images.length > 1 && (
-                            <div className="flex-shrink-0 w-full px-4 py-4 bg-black/30">
-                                <div className="max-w-4xl mx-auto overflow-x-auto">
-                                    <div className="flex gap-3 justify-center min-w-max px-4">
-                                        {images.map((imagePath, index) => (
-                                            <motion.div
-                                                key={index}
-                                                className={`relative flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden cursor-pointer border-2 ${
-                                                    index === currentImageIndex ? 'border-purple-500' : 'border-transparent'
-                                                } transition-colors`}
-                                                onClick={() => goToImage(index)}
-                                                whileHover={{ scale: 1.05 }}
-                                                whileTap={{ scale: 0.95 }}
-                                            >
-                                                <Image
-                                                    src={imagePath}
-                                                    alt={`Thumbnail ${index + 1}`}
-                                                    fill
-                                                    sizes="80px"
-                                                    className="object-cover"
-                                                />
-                                                {index !== currentImageIndex && (
-                                                    <div className="absolute inset-0 bg-black/50"></div>
-                                                )}
-                                            </motion.div>
-                                        ))}
-                                    </div>
+                            <div className="flex-shrink-0 w-full px-4 pb-4">
+                                <div className="flex gap-3 justify-center overflow-x-auto max-w-full">
+                                    {images.map((imagePath, index) => (
+                                        <motion.div
+                                            key={index}
+                                            className={`relative flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden cursor-pointer border-2 ${
+                                                index === currentImageIndex ? 'border-purple-500' : 'border-transparent'
+                                            } transition-colors`}
+                                            onClick={() => goToImage(index)}
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                        >
+                                            <Image
+                                                src={imagePath}
+                                                alt={`Thumbnail ${index + 1}`}
+                                                fill
+                                                sizes="80px"
+                                                className="object-cover"
+                                            />
+                                            {index !== currentImageIndex && (
+                                                <div className="absolute inset-0 bg-black/50"></div>
+                                            )}
+                                        </motion.div>
+                                    ))}
                                 </div>
                             </div>
                         )}
