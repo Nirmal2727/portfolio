@@ -208,6 +208,7 @@ export default function ImageGalleryModal({
                                         className="object-contain rounded-md" // object-contain to fit image without cropping
                                         priority={currentImageIndex === initialIndex} // Prioritize the initially opened image
                                     />
+                                    {console.log("Modal Main Image path:", images[currentImageIndex])}
                                 </motion.div>
                             </AnimatePresence>
 
@@ -254,6 +255,7 @@ export default function ImageGalleryModal({
                                                 sizes="64px" // Fixed size for thumbnails
                                                 className="object-cover"
                                             />
+                                            {console.log(`Modal Thumbnail ${index}:`, imagePath)}
                                             {/* Optional: Add overlay for non-selected thumbnails */}
                                              {index !== currentImageIndex && (
                                                  <div className="absolute inset-0 bg-black/50"></div>
