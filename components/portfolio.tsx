@@ -309,6 +309,7 @@ export default function Portfolio() {
                 {/* Map over all portfolio items. Swiper handles which ones are visible per slide */}
                 {portfolioItems.map((item) => (
                     <SwiperSlide key={item.id}>
+                      {console.log("Thumbnail path:", item.thumbnail)}
                         {/* Wrap the item content in motion.div for stagger animation */}
                         <motion.div
                             variants={itemVariants} // Use the same itemVariants for individual items
