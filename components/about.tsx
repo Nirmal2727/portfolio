@@ -119,7 +119,7 @@ export default function About() {
               >
                 <div className="relative w-full h-full">
                   <Image
-                    src="/placeholder.svg?height=320&width=320"
+                    src="/profile.JPG"
                     alt="Profile"
                     fill
                     className="object-cover rounded-full border-4 border-white/20 backdrop-blur-sm"
