@@ -29,7 +29,7 @@ export default function ImageGalleryModal({
              // Ensure the index is valid for the current set of images
             setCurrentImageIndex(Math.min(initialIndex, images.length > 0 ? images.length - 1 : 0)); // Handle empty images array
         }
-    }, [isOpen, initialIndex, images]);
+    }, [isOpen, initialIndex, images]); // Re-run if modal opens, initial index, or image list changes
 
     const goToNext = useCallback(() => {
         if (images.length > 0) {
@@ -157,15 +157,18 @@ export default function ImageGalleryModal({
     // Add a check for empty images array
     if (!images || images.length === 0) {
          console.warn("ImageGalleryModal opened with an empty or null image array.");
-         return null;
+         // If images are missing, close the modal instead of returning null immediately
+         // This prevents the modal from being 'stuck' open if it was opened with bad data.
+         onClose();
+         return null; // Still return null for this render cycle
     }
 
 
     return (
         <AnimatePresence>
-            {isOpen && (
+            {isOpen && ( // Keep the conditional render inside AnimatePresence
                 <motion.div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm" // Padding around the modal container
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
                     variants={modalVariants}
                     initial="hidden"
                     animate="visible"
@@ -173,7 +176,7 @@ export default function ImageGalleryModal({
                 >
                     {/* Modal Content Container - Now has the main padding */}
                     {/* Adjusted max-h slightly to leave some space for the top padding + close button */}
-                    <div ref={modalContentRef} className="relative w-full max-w-6xl max-h-[calc(100vh-6rem)] lg:max-h-[95vh] flex flex-col bg-gray-900 rounded-lg overflow-hidden"> {/* ADDED p-4 removed, using padding from parent; Adjusted max-h */}
+                    <div ref={modalContentRef} className="relative w-full max-w-6xl max-h-[calc(100vh-6rem)] lg:max-h-[95vh] flex flex-col bg-gray-900 rounded-lg overflow-hidden p-4">
 
                         {/* Close Button */}
                         <button
@@ -184,8 +187,8 @@ export default function ImageGalleryModal({
                              <X className="h-6 w-6" />
                          </button>
 
-                        {/* Main Image Area - Removed p-4, relies on flex-grow */}
-                         <div className="relative w-full flex-grow flex items-center justify-center overflow-hidden"> {/* REMOVED p-4 */}
+                        {/* Main Image Area - Relies on flex-grow */}
+                         <div className="relative w-full flex-grow flex items-center justify-center overflow-hidden">
                             <AnimatePresence initial={false} custom={direction}>
                                 <motion.div
                                      key={images[currentImageIndex]}
@@ -207,8 +210,11 @@ export default function ImageGalleryModal({
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 70vw"
                                         className="object-contain rounded-md" // object-contain is correct for fitting
                                         priority={currentImageIndex === initialIndex}
+                                         // Optional: add unoptimized prop if you suspect issues with Next.js Image component optimization
+                                         // unoptimized={true}
                                     />
-                                    {console.log("Modal Main Image path:", images[currentImageIndex])}
+                                    {/* Console log inside the JSX can sometimes cause hydration issues */}
+                                    {/* {console.log("Modal Main Image path:", images[currentImageIndex])} */}
                                 </motion.div>
                             </AnimatePresence>
 
@@ -237,7 +243,7 @@ export default function ImageGalleryModal({
                         {/* Thumbnails Strip */}
                          {images.length > 1 && (
                              {/* This container now needs vertical padding */}
-                             <div className="w-full flex-shrink-0 px-4 py-2 overflow-x-auto"> {/* ADDED py-2 back */}
+                             <div className="w-full flex-shrink-0 px-4 py-2 overflow-x-auto">
                                 <div className="flex gap-3 justify-center">
                                     {images.map((imagePath, index) => (
                                         <motion.div
@@ -256,7 +262,8 @@ export default function ImageGalleryModal({
                                                 sizes="64px" // Fixed size for thumbnails
                                                 className="object-cover"
                                             />
-                                            {console.log(`Modal Thumbnail ${index}:`, imagePath)}
+                                            {/* Console log inside JSX can sometimes cause hydration issues */}
+                                            {/* {console.log(`Modal Thumbnail ${index}:`, imagePath)} */}
                                             {/* Optional: Add overlay for non-selected thumbnails */}
                                              {index !== currentImageIndex && (
                                                  <div className="absolute inset-0 bg-black/50"></div>
