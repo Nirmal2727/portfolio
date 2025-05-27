@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { motion, useInView, useAnimation } from "framer-motion"
-import { ChevronLeft, ChevronRight } from "lucide-react" // Chevron icons for slider nav
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -18,7 +18,7 @@ import 'swiper/css/grid';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// Import our new image gallery modal component
+// Import our new image gallery modal component (Ensure this file exists and has the correct code)
 import ImageGalleryModal from "./image-gallery-modal";
 
 // Define the type for a portfolio item
@@ -55,171 +55,170 @@ export default function Portfolio() {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    // Modal state is cleared in the ImageGalleryModal component's useEffect
+     // Optionally clear state after close animation completes
+     // setModalImages([]);
+     // setModalInitialIndex(0);
   };
 
 
   // Portfolio Data based on the directory structure
-  // !! IMPORTANT: These paths MUST EXACTLY MATCH the case and extension
-  //               of the files in your public/portfolio/render/ directory on the server !!
+  // !! IMPORTANT: Update paths below to match your RENAMED folders and ACTUAL image filenames (e.g., 1.png, 2.png) !!
   const portfolioItems: PortfolioItem[] = [
     {
       id: 1,
       title: "Contemporary Bathroom Design",
       description: "Stylish and modern bathroom visualization.",
-      thumbnail: "/portfolio/render/Contemporary Bathroom Design/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/contemporary-bathroom-design/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/Contemporary Bathroom Design/1.png",
-        "/portfolio/render/Contemporary Bathroom Design/2.png",
-        "/portfolio/render/Contemporary Bathroom Design/3.png",
-        // Add all actual image paths for this project here
-        // e.g., "/portfolio/render/Contemporary Bathroom Design/render_final.png",
-        // e.g., "/portfolio/render/Contemporary Bathroom Design/wireframe.png",
+        "/portfolio/render/contemporary-bathroom-design/1.png", // <-- Updated path
+        "/portfolio/render/contemporary-bathroom-design/2.png", // <-- Update filename if different
+        "/portfolio/render/contemporary-bathroom-design/3.png",
+        // Add ALL image paths for this project's gallery here
+        // e.g., "/portfolio/render/contemporary-bathroom-design/3.png",
       ],
     },
     {
       id: 2,
       title: "Contemporary Canopy Suit",
       description: "Elegant canopy design visualization.",
-      thumbnail: "/portfolio/render/Contemporary Canopy Suit/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/contemporary-canopy-suit/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/Contemporary Canopy Suit/1.png",
-        "/portfolio/render/Contemporary Canopy Suit/2.png",
-        "/portfolio/render/Contemporary Canopy Suit/3.png",
-        // Add all actual image paths for this project here
+        "/portfolio/render/contemporary-canopy-suit/1.png", // <-- Updated path
+        "/portfolio/render/contemporary-canopy-suit/2.png", // <-- Update filename if different
+        "/portfolio/render/contemporary-canopy-suit/3.png", // <-- Update filename if different
+        // ... more images
       ],
     },
      {
       id: 3,
       title: "Environmental Lighting Showcase",
       description: "Render focusing on lighting techniques.",
-      thumbnail: "/portfolio/render/Environmental Lighting Showcase/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/environmental-lighting-showcase/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/Environmental Lighting Showcase/1.png",
-        "/portfolio/render/Environmental Lighting Showcase/2.png",
-        "/portfolio/render/Environmental Lighting Showcase/3.png",
-        "/portfolio/render/Environmental Lighting Showcase/4.png",
-        "/portfolio/render/Environmental Lighting Showcase/5.png",
-        "/portfolio/render/Environmental Lighting Showcase/6.png",
-         // Add all actual image paths for this project here
+        "/portfolio/render/environmental-lighting-showcase/1.png", // <-- Updated path
+        "/portfolio/render/environmental-lighting-showcase/2.png", // <-- Update filename if different
+        "/portfolio/render/environmental-lighting-showcase/3.png", // <-- Update filename if different
+        "/portfolio/render/environmental-lighting-showcase/4.png", // <-- Update filename if different
+        "/portfolio/render/environmental-lighting-showcase/5.png",
+        "/portfolio/render/environmental-lighting-showcase/6.png",
       ],
     },
      {
       id: 4,
       title: "Luxe Green Bathroom",
       description: "Luxury bathroom with green accents.",
-      thumbnail: "/portfolio/render/Luxe Green Bathroom/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/luxe-green-bathroom/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/Luxe Green Bathroom/1.png",
-        "/portfolio/render/Luxe Green Bathroom/2.png",
-        "/portfolio/render/Luxe Green Bathroom/2.png",
-        // Add all actual image paths for this project here
+        "/portfolio/render/luxe-green-bathroom/1.png", // <-- Updated path
+        "/portfolio/render/luxe-green-bathroom/2.png", // <-- Update filename if different
+        "/portfolio/render/luxe-green-bathroom/3.png",
       ],
     },
      {
       id: 5,
       title: "Modern Luxury Dining",
       description: "High-end dining area visualization.",
-      thumbnail: "/portfolio/render/Modern Luxury Dining/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/modern-luxury-dining/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/Modern Luxury Dining/1.png",
-        "/portfolio/render/Modern Luxury Dining/2.png",
-        "/portfolio/render/Modern Luxury Dining/3.png",
-        "/portfolio/render/Modern Luxury Dining/4.png",
-        // Add all actual image paths for this project here
+        "/portfolio/render/modern-luxury-dining/1.png", // <-- Updated path
+        "/portfolio/render/modern-luxury-dining/2.png", // <-- Update filename if different
+        "/portfolio/render/modern-luxury-dining/3.png", // <-- Update filename if different
+        "/portfolio/render/modern-luxury-dining/4.png",
       ],
     },
     {
       id: 6,
       title: "Neon Streets",
       description: "Urban scene with neon lighting.",
-      thumbnail: "/portfolio/render/Neon Streets/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/neon-streets/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/Neon Streets/1.png",
-        // Add all actual image paths for this project here
+        "/portfolio/render/neon-streets/1.png", // <-- Updated path
       ],
     },
      {
       id: 7,
       title: "Noir Serenity",
       description: "Dark and serene visualization.",
-      thumbnail: "/portfolio/render/Noir Serenity/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/noir-serenity/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/Noir Serenity/1.png",
-        "/portfolio/render/Noir Serenity/2.png",
-         // Add all actual image paths for this project here
+        "/portfolio/render/noir-serenity/1.png", // <-- Updated path
+        "/portfolio/render/noir-serenity/2.png",
       ],
     },
      {
       id: 8,
       title: "Olive Hues & Modern Views",
       description: "Contemporary space with olive tones.",
-      thumbnail: "/portfolio/render/Olive Hues & Modern Views/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/olive-hues-modern-views/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/Olive Hues & Modern Views/1.png",
-        "/portfolio/render/Olive Hues & Modern Views/2.png",
-        "/portfolio/render/Olive Hues & Modern Views/3.png",
-        "/portfolio/render/Olive Hues & Modern Views/4.png",
-        "/portfolio/render/Olive Hues & Modern Views/5.png",
-         // Add all actual image paths for this project here
+        "/portfolio/render/olive-hues-modern-views/1.png", // <-- Updated path
+        "/portfolio/render/olive-hues-modern-views/2.png", // <-- Update filename if different
+        "/portfolio/render/olive-hues-modern-views/3.png", // <-- Update filename if different
+        "/portfolio/render/olive-hues-modern-views/4.png",
+        "/portfolio/render/olive-hues-modern-views/5.png",
       ],
     },
      {
       id: 9,
       title: "Symphony of Gold and Black",
       description: "Opulent interior concept.",
-      thumbnail: "/portfolio/render/Symphony of Gold and Black/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/symphony-of-gold-and-black/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/Symphony of Gold and Black/1.png",
-        "/portfolio/render/Symphony of Gold and Black/2.png",
-         // Add all actual image paths for this project here
+        "/portfolio/render/symphony-of-gold-and-black/1.png", // <-- Updated path
+        "/portfolio/render/symphony-of-gold-and-black/2.png", // <-- Update filename if different
       ],
     },
      {
       id: 10,
       title: "The Soft Edge",
       description: "Visualization with soft transitions.",
-      thumbnail: "/portfolio/render/The Soft Edge/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/the-soft-edge/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/The Soft Edge/1.png",
-        "/portfolio/render/The Soft Edge/2.png",
-        // Add all actual image paths for this project here
+        "/portfolio/render/the-soft-edge/1.png", // <-- Updated path
+        "/portfolio/render/the-soft-edge/2.png",
       ],
     },
       {
       id: 11,
       title: "The Urban Escape",
       description: "Relaxing urban balcony/terrace.",
-      thumbnail: "/portfolio/render/The Urban Escape/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/the-urban-escape/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/The Urban Escape/1.png",
-         "/portfolio/render/The Urban Escape/2.png",
-          // Add all actual image paths for this project here
+        "/portfolio/render/the-urban-escape/1.png", // <-- Updated path
+         "/portfolio/render/the-urban-escape/2.png", // <-- Update filename if different
       ],
     },
        {
       id: 12,
       title: "The Urban Villa",
       description: "Modern villa in an urban setting.",
-      thumbnail: "/portfolio/render/The Urban Villa/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/the-urban-villa/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/The Urban Villa/1.png",
-           // Add all actual image paths for this project here
+        "/portfolio/render/the-urban-villa/1.png", // <-- Updated path
       ],
     },
       {
       id: 13,
       title: "Velocity Vault",
       description: "Futuristic vehicle showcase.",
-      thumbnail: "/portfolio/render/Velocity Vault/1.png", // Using .png extension
+      thumbnail: "/portfolio/render/velocity-vault/1.png", // <-- Updated path
       images: [
-        "/portfolio/render/Velocity Vault/1.png",
-        "/portfolio/render/Velocity Vault/2.png",
-         // Add all actual image paths for this project here
+        "/portfolio/render/velocity-vault/1.png", // <-- Updated path
+        "/portfolio/render/velocity-vault/2.png",
       ],
     },
-    // Add the rest of your projects following this pattern
-    // Ensure paths and extensions are correct!
+    // Add the rest of your projects following this pattern, updating paths and filenames
+    // {
+    //   id: N,
+    //   title: "Project Name",
+    //   description: "Brief description.",
+    //   thumbnail: "/portfolio/render/your-project-name/1.png",
+    //   images: [
+    //     "/portfolio/render/your-project-name/1.png",
+    //     "/portfolio/render/your-project-name/2.png",
+    //     // ... more images
+    //   ],
+    // },
   ];
 
 
@@ -228,7 +227,7 @@ export default function Portfolio() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05, // Reduced stagger for slider items
+        staggerChildren: 0.05,
       },
     },
   }
@@ -239,7 +238,7 @@ export default function Portfolio() {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.4, // Reduced duration slightly
+        duration: 0.4,
       },
     },
   }
@@ -335,8 +334,10 @@ export default function Portfolio() {
                                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                                     // Adjust sizes attribute for better performance based on the grid layout breakpoints
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                    // Prioritize loading for the first page of items (adjust based on items per page)
-                                    priority={item.id <= 6}
+                                    // Set priority for the first page items to optimize LCP
+                                    priority={item.id <= 6} // Assuming the first 6 items are on the initial page
+                                     // Optional: add unoptimized prop if image optimization is suspected
+                                     // unoptimized={true}
                                 />
                                 {/* Overlay for title and description */}
                                 <motion.div
@@ -363,23 +364,18 @@ export default function Portfolio() {
                                 </motion.div>
 
                                  {/* Icon Overlay (Generic View Icon) */}
-                                 {/* Only show if there's at least one image */}
-                                 {item.images && item.images.length > 0 && (
-                                    <motion.div
-                                        className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                        initial={{ opacity: 0 }}
-                                        whileHover={{ opacity: 1 }}
-                                        transition={{ duration: 0.3 }}
+                                 <motion.div
+                                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                    initial={{ opacity: 0 }}
+                                    whileHover={{ opacity: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <div
+                                      className="bg-purple-600 rounded-full p-3 flex items-center justify-center"
                                     >
-                                        <div
-                                          className="bg-purple-600 rounded-full p-3 flex items-center justify-center"
-                                        >
-                                            {/* Icon indicating view or expand */}
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-expand text-white"><rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21v-4a3 3 0 0 0-3-3H3"/><path d="M21 14h-4a3 3 0 0 0-3 3v4"/></svg>
-                                        </div>
-                                    </motion.div>
-                                  )}
-
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-expand text-white"><rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21v-4a3 3 0 0 0-3-3H3"/><path d="M21 14h-4a3 3 0 0 0-3 3v4"/></svg>
+                                    </div>
+                                </motion.div>
                             </div>
                         </motion.div>
                     </SwiperSlide>
@@ -388,15 +384,15 @@ export default function Portfolio() {
 
             {/* Custom Navigation Arrows - Positioned relative to the parent motion.div */}
             {/* Needs z-index to be above Swiper content */}
-             {/* Adjust positioning as needed */}
-            <div className="swiper-button-prev-custom absolute top-1/2 left-0 z-10 transform -translate-y-1/2 cursor-pointer bg-black/50 rounded-full p-2 group-hover:opacity-100 transition-opacity duration-300">
+            {/* Use translate to position them outside the content area if desired */}
+            <div className="swiper-button-prev-custom absolute top-1/2 left-0 z-10 transform -translate-y-1/2 cursor-pointer bg-black/50 rounded-full p-2">
                 <ChevronLeft className="h-8 w-8 text-white" />
             </div>
-            <div className="swiper-button-next-custom absolute top-1/2 right-0 z-10 transform -translate-y-1/2 cursor-pointer bg-black/50 rounded-full p-2 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="swiper-button-next-custom absolute top-1/2 right-0 z-10 transform -translate-y-1/2 cursor-pointer bg-black/50 rounded-full p-2">
                  <ChevronRight className="h-8 w-8 text-white" />
             </div>
 
-             {/* Custom Pagination Element */}
+             {/* Custom Pagination */}
              {/* Position this below the swiper */}
             <div className="swiper-pagination-custom mt-8 text-center relative z-10"></div>
 
